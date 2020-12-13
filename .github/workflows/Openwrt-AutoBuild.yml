@@ -3,15 +3,21 @@ name: Openwrt-AutoBuild
 on:
 #  release:
 #    types: [published]
-  push:
-    branches:
-      - main
-    paths:
-      - 'start'
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - 'start'
 #  schedule:
 #    - cron: 0 20 * * *
 #  watch:
 #    types: [started]
+  workflow_dispatch:
+    inputs:
+      ssh:
+        description: 'SSH connection to Actions'
+        required: false
+        default: 'false'
 
 env:
   RUN_VALIDATION: true
